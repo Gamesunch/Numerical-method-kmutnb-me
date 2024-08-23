@@ -33,13 +33,12 @@ public class Cramer {
         if (detA == 0) {
             System.out.println("System has no unique solution (determinant is 0)");
         }  else {
-            // Apply Cramer's Rule to find solutions
             double[] solutions = new double[A.length]; //have x1,x2,x3 inside;
             for (int i = 0; i < A.length; i++) {
                 SimpleMatrix tempMatrix = matrixA.copy();
-                // Replace the i-th column using setColumn()
+                
                 for (int j = 0; j < A.length; j++) {
-                    tempMatrix.set(j, i, matrixB.get(j, 0)); // Access elements using get() and set()
+                    tempMatrix.set(j, i, matrixB.get(j, 0));
                 }
                 double detAi = tempMatrix.determinant();
                 solutions[i] = detAi / detA;
